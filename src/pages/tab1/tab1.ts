@@ -12,6 +12,7 @@ export class Tab1Page implements OnInit{
 
   items: Array<any>;
   firebaseItems: FirebaseListObservable<any>;
+  title: string = 'TAB1';
 
   constructor(
     public navCtrl: NavController,
