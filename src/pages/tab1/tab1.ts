@@ -10,6 +10,7 @@ import { ItemSliding, NavController, NavParams } from 'ionic-angular';
 export class Tab1Page implements OnInit{
 
   items: Array<any>;
+  title: string = 'TAB1';
 
   constructor(
     public navCtrl: NavController,

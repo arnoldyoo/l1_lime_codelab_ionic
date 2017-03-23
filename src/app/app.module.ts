@@ -6,6 +6,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { NavComponent } from './../pages/components/nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { HomePage } from '../pages/home/home';
     TabsPage,
     Tab1Page,
     Tab2Page,
-    ModalPage
+    ModalPage,
+    NavComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp,{
