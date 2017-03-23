@@ -22,12 +22,13 @@
 <ion-content>
   
     <ion-list>
-      <ion-item-sliding #slideItem *ngFor="let item of items">
+      <ion-item-sliding #slideItem *ngFor="let item of firebaseItems | async">
         <ion-item>
-          <b>{{item.name}}</b>
+          <b>{{item.name}} ({{item.viewCount}})</b>
         </ion-item>
         <ion-item-options side="right">
           <button ion-button color="dark" (click)="moreInfo(slideItem, item)">more</button>
+          <button ion-button color="danger" (click)="deleteInfo(slideItem, item)">delete</button>
         </ion-item-options>
       </ion-item-sliding>
     </ion-list>
