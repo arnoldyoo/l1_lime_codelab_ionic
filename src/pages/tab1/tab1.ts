@@ -1,3 +1,4 @@
+import { AddModalPage } from './../add-modal/add-modal';
 import { ModalPage } from './../modal/modal';
 import { ModalController } from 'ionic-angular/components/modal/modal';
 import { Component, OnInit } from '@angular/core';
@@ -22,7 +23,7 @@ export class Tab1Page implements OnInit{
   ) {
 
   }
-  
+
   ngOnInit(): void {
     this._setItems();
 
@@ -31,11 +32,15 @@ export class Tab1Page implements OnInit{
 
       this.firebaseItems.subscribe(items => {
         if(items.length === 0) {
-          this.firebaseItems.push({name: 'Angular.js', url: 'https://angularjs.org/'});
-          this.firebaseItems.push({name: 'Angular', url: 'https://angular.io/'});
-          this.firebaseItems.push({name: 'Vue.js', url: 'https://vuejs.org/'});
-          this.firebaseItems.push({name: 'React.js', url: 'https://facebook.github.io/react/'});
-          this.firebaseItems.push({name: 'Cycle.js', url: 'https://cycle.js.org/'});
+          this.firebaseItems.push({name: 'Angular.js', url: 'https://angularjs.org/', viewCount: 0});
+          this.firebaseItems.push({name: 'Angular', url: 'https://angular.io/', viewCount: 0});
+          this.firebaseItems.push({name: 'Vue.js', url: 'https://vuejs.org/', viewCount: 0});
+          this.firebaseItems.push({name: 'React.js', url: 'https://facebook.github.io/react/', viewCount: 0});
+          this.firebaseItems.push({name: 'Cycle.js', url: 'https://cycle.js.org/', viewCount: 0});
+        } else {
+          items.map(item => {
+            console.log(item);
+          })
         }
       });
     });
@@ -47,11 +52,11 @@ export class Tab1Page implements OnInit{
 
   private _setItems(): void{
     this.items = [
-      {name: 'Angular.js', url: 'https://angularjs.org/'},
-      {name: 'Angular', url: 'https://angular.io/'},
-      {name: 'Vue.js', url: 'https://vuejs.org/'},
-      {name: 'React.js', url: 'https://facebook.github.io/react/'},
-      {name: 'Cycle.js', url: 'https://cycle.js.org/'},
+      {name: 'Angular.js', url: 'https://angularjs.org/', viewCount: '1'},
+      {name: 'Angular', url: 'https://angular.io/', viewCount: 0},
+      {name: 'Vue.js', url: 'https://vuejs.org/', viewCount: 0},
+      {name: 'React.js', url: 'https://facebook.github.io/react/', viewCount: 0},
+      {name: 'Cycle.js', url: 'https://cycle.js.org/', viewCount: 0},
     ]
   }
   
@@ -68,8 +73,14 @@ export class Tab1Page implements OnInit{
     })
 
     this.firebaseItems.update(item.$key, {
-      viewCount: (item.viewCount) ? item.viewCount+1 : 1
+      viewCount: (item.viewCount !== 0) ? item.viewCount+1 : 1
     })
+  }
+
+  addSite(): void {
+    console.log('add!');
+    let addpage = this.modalCtrl.create(AddModalPage);
+    addpage.present();
   }
 
   ionViewDidLoad() {

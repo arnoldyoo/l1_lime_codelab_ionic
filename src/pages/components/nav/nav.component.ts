@@ -1,11 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'nav-component',
     templateUrl: 'nav.component.html'
 })
-export class NavComponent implements OnInit {
+export class NavComponent{
     @Input() title: string;
     constructor() { }
-    ngOnInit() { }
+    ionViewDidLoad() {
+        console.log('ionViewDidLoad Tab1Page');
+    }
 }
