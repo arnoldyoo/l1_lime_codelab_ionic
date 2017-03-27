@@ -69,7 +69,8 @@ export class Tab1Page implements OnInit{
     })
 
     modalpage.onDidDismiss(data => {
-      console.log(data);
+      data.$key = item.$key;
+      this._saveItem(data);
     })
 
     this.firebaseItems.update(item.$key, {
@@ -81,6 +82,21 @@ export class Tab1Page implements OnInit{
     console.log('add!');
     let addpage = this.modalCtrl.create(AddModalPage);
     addpage.present();
+
+    addpage.onDidDismiss(data => {
+      this._saveItem(data);
+    })
+  }
+
+  private _saveItem(item: any): void {
+    console.log(item);
+
+    if (item.state === 'add') {
+      // insert new
+    } else {
+      // update item
+    }
+
   }
 
   ionViewDidLoad() {

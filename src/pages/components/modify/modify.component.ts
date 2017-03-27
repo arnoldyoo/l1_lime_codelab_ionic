@@ -27,11 +27,17 @@ export class ModifyComponent implements OnInit {
 
     cancel(): void {
         this._initalizeModel();
-        this.viewCtrl.dismiss();
+        this.viewCtrl.dismiss('close');
     }
     save(): void {
-        console.log(this.sitename);
-        console.log(this.siteurl);
+        const iteminfo = {
+            item: {
+                name : this.sitename,
+                url: this.siteurl
+            },
+            state: this.state
+        }
+        this.viewCtrl.dismiss(iteminfo);
     }
 
 }

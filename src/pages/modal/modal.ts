@@ -13,6 +13,7 @@ export class ModalPage {
     public viewCtrl: ViewController
   ) {
     this.siteinfo = navParams.get('siteinfo');
+    console.log(this.siteinfo.$key);
   }
 
   ionViewDidLoad() { }
