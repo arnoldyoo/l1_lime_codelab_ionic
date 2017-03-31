@@ -98,9 +98,9 @@ export class Tab1Page implements OnInit{
   private _saveItem(item: any): void {
     console.log(item);
     if (item.state === 'add') {
-      // insert new
+      this.firebaseItems.push(item.item);
     } else {
-      // update item
+      this.firebaseItems.update(item.$key, item.item);
     }
   }
 
