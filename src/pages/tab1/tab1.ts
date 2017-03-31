@@ -90,13 +90,11 @@ export class Tab1Page implements OnInit{
 
   private _saveItem(item: any): void {
     console.log(item);
-
     if (item.state === 'add') {
       // insert new
     } else {
       // update item
     }
-
   }
 
   ionViewDidLoad() {

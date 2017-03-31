@@ -1,21 +1,23 @@
 <div>
     <ion-list>
         <ion-item>
-            <ion-label color="primary" stacked>Site Name</ion-label>
-            <ion-input type="text" placeholder="site name" [(ngModel)]="sitename" ></ion-input>
+            <ion-label color="primary" stacked>Name</ion-label>
+            <ion-input type="text" placeholder="site name" 
+            [(ngModel)]="sitename" ></ion-input>
         </ion-item>
         <ion-item>
-            <ion-label color="primary" stacked>Site Url</ion-label>
-            <ion-input type="text" placeholder="site name" [(ngModel)]="siteurl" ></ion-input>
+            <ion-label color="primary" stacked>Url</ion-label>
+            <ion-input type="text" placeholder="site url" 
+            [(ngModel)]="siteurl" ></ion-input>
         </ion-item>
     </ion-list>
     <div id="btn-group">
         <button ion-button (click)="save()" small round>
             save
         </button>
-        <button *ngIf="state === 'add'" ion-button color="danger"  (click)="cancel()" small round>
+        <button *ngIf="state === 'add'" ion-button color="danger"  
+        (click)="cancel()" small round>
             cancel
         </button>
     </div>
-
 </div>

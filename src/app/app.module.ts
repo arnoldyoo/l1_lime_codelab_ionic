@@ -4,12 +4,12 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { NavComponent } from './../pages/components/nav/nav.component';
 
-import { AddModalPage } from './../pages/add-modal/add-modal';
 import { ModalPage } from './../pages/modal/modal';
 import { Tab2Page } from './../pages/tab2/tab2';
 import { Tab1Page } from './../pages/tab1/tab1';
 import { TabsPage } from './../pages/tabs/tabs';
 import { ModifyComponent } from '../pages/components/modify/modify.component';
+import { AddModalPage } from './../pages/add-modal/add-modal';
 
 import { AngularFireModule } from 'angularfire2';
 import { firebaseConfig } from '../firebase.config';
