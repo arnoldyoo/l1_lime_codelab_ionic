@@ -19,7 +19,7 @@ export class ModalPage {
   ionViewDidLoad() { }
 
   close(): void{
-    this.viewCtrl.dismiss('close success');
+    this.viewCtrl.dismiss();
   }
 
 }

@@ -69,8 +69,10 @@ export class Tab1Page implements OnInit{
     })
 
     modalpage.onDidDismiss(data => {
-      data.$key = item.$key;
-      this._saveItem(data);
+      if (data !== undefined) {
+        data.$key = item.$key;
+        this._saveItem(data);
+      }
     })
 
     this.firebaseItems.update(item.$key, {
