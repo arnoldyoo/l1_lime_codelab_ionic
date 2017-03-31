@@ -12,7 +12,7 @@ import { ModifyComponent } from '../pages/components/modify/modify.component';
 import { AddModalPage } from './../pages/add-modal/add-modal';
 
 import { AngularFireModule } from 'angularfire2';
-import { firebaseConfig } from '../firebase.config';
+import { firebaseConfig, firebaseGoogleAuthentication } from '../firebase.config';
 
 
 @NgModule({
@@ -36,7 +36,7 @@ import { firebaseConfig } from '../firebase.config';
         }
       }    
     }),
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig, firebaseGoogleAuthentication)
   ],
   bootstrap: [IonicApp],
   entryComponents: [

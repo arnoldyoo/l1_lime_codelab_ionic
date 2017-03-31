@@ -1,7 +1,20 @@
+import { AuthProviders, AuthMethods } from 'angularfire2';
+
 export const firebaseConfig = {
-  apiKey: "AIzaSyBskkmK4xSkk8T4H_2BiQNl0NpVcvM9hY8",
-  authDomain: "bookmark-ionic.firebaseapp.com",
-  databaseURL: "https://bookmark-ionic.firebaseio.com",
-  storageBucket: "bookmark-ionic.appspot.com",
-  messagingSenderId: "577580907139"
+  apiKey: "AIzaSyD9dFqT8luyOpCKq5AZQnhg6UFV8x9v4K8",
+  authDomain: "devlabs-1c5ab.firebaseapp.com",
+  databaseURL: "https://devlabs-1c5ab.firebaseio.com",
+  projectId: "devlabs-1c5ab",
+  storageBucket: "devlabs-1c5ab.appspot.com",
+  messagingSenderId: "726477132345"
 };
+
+export const firebaseGoogleAuthentication = {
+  provider: AuthProviders.Google,
+  method: AuthMethods.Redirect
+}
+
+export const firebaseFaceookAuthentication = {
+  provider: AuthProviders.Facebook,
+  method: AuthMethods.Popup
+}
