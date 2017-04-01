@@ -24,25 +24,30 @@ export class Tab1Page implements OnInit{
 
   }
 
+  userUID: string;
+
   ngOnInit(): void {
     this._setItems();
 
-    this.angularFire.auth.subscribe(auth => {
-      this.firebaseItems = this.angularFire.database.list('/items');
+    this.angularFire.auth.subscribe(data => {
+      if(data) {
+        this.userUID = data.auth.uid;
+        this.firebaseItems = this.angularFire.database.list('/items/'+ this.userUID);
 
-      this.firebaseItems.subscribe(items => {
-        if(items.length === 0) {
-          this.firebaseItems.push({name: 'Angular.js', url: 'https://angularjs.org/', viewCount: 0});
-          this.firebaseItems.push({name: 'Angular', url: 'https://angular.io/', viewCount: 0});
-          this.firebaseItems.push({name: 'Vue.js', url: 'https://vuejs.org/', viewCount: 0});
-          this.firebaseItems.push({name: 'React.js', url: 'https://facebook.github.io/react/', viewCount: 0});
-          this.firebaseItems.push({name: 'Cycle.js', url: 'https://cycle.js.org/', viewCount: 0});
-        } else {
-          items.map(item => {
-            console.log(item);
-          })
-        }
-      });
+        this.firebaseItems.subscribe(items => {
+          if(items.length === 0) {
+            this.firebaseItems.push({name: 'Angular.js', url: 'https://angularjs.org/', viewCount: 0});
+            this.firebaseItems.push({name: 'Angular', url: 'https://angular.io/', viewCount: 0});
+            this.firebaseItems.push({name: 'Vue.js', url: 'https://vuejs.org/', viewCount: 0});
+            this.firebaseItems.push({name: 'React.js', url: 'https://facebook.github.io/react/', viewCount: 0});
+            this.firebaseItems.push({name: 'Cycle.js', url: 'https://cycle.js.org/', viewCount: 0});
+          } else {
+            items.map(item => {
+              console.log(item);
+            })
+          }
+        });
+      }
     });
   }
 
@@ -93,9 +98,10 @@ export class Tab1Page implements OnInit{
   private _saveItem(item: any): void {
     console.log(item);
     if (item.state === 'add') {
-      // insert new
+      item.item.viewCount = 0;
+      this.firebaseItems.push(item.item);
     } else {
-      // update item
+      this.firebaseItems.update(item.$key, item.item);
     }
   }
 

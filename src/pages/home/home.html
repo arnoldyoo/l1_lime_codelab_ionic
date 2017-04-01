@@ -10,4 +10,19 @@
   <p>
     If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
   </p>
+
+  <div *ngIf="isProcessing">
+    loading...
+  </div>
+  <div *ngIf="!isProcessing">
+    <div *ngIf="isLogin">
+      <div>hello {{ userName }}!</div>
+      <button ion-button color="light" (click)="doLogout()">Logout</button>
+    </div>
+    <div *ngIf="!isLogin">
+      <button ion-button color="danger" (click)="doLogin('google')">Google Login</button>
+      <button ion-button (click)="doLogin('github')">Github Login</button>
+    </div>
+  </div>
+
 </ion-content>
