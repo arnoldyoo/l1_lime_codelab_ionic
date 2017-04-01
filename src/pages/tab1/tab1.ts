@@ -32,7 +32,7 @@ export class Tab1Page implements OnInit{
     this.angularFire.auth.subscribe(data => {
       if(data) {
         this.userUID = data.auth.uid;
-        this.firebaseItems = this.angularFire.database.list('/items/' + this.userUID);
+        this.firebaseItems = this.angularFire.database.list('/items/'+ this.userUID);
 
         this.firebaseItems.subscribe(items => {
           if(items.length === 0) {
@@ -98,6 +98,7 @@ export class Tab1Page implements OnInit{
   private _saveItem(item: any): void {
     console.log(item);
     if (item.state === 'add') {
+      item.item.viewCount = 0;
       this.firebaseItems.push(item.item);
     } else {
       this.firebaseItems.update(item.$key, item.item);

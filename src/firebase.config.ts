@@ -14,7 +14,7 @@ export const firebaseGoogleAuthentication = {
   method: AuthMethods.Redirect
 }
 
-export const firebaseFaceookAuthentication = {
-  provider: AuthProviders.Facebook,
+export const firebaseGithubAuthentication = {
+  provider: AuthProviders.Github,
   method: AuthMethods.Popup
 }
