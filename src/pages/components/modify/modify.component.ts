@@ -24,7 +24,7 @@ export class ModifyComponent implements OnInit {
     }
     cancel(): void {
         this._initalizeModel();
-        this.viewCtrl.dismiss('close');
+        this.viewCtrl.dismiss();
     }
     save(): void {
         const iteminfo = {
